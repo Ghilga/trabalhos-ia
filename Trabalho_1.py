@@ -1,9 +1,19 @@
-"""
-Recebe um estado (no estilo '_23541687') 
-e retorna uma lista com 3 tuplas com ação e estado atingido, 
-por exemplo: [(esquerda,“_23541687”), (abaixo,“2435_1687”),  (direita,“23_541687”)]
-"""
+class Nodo():
 
-def sucessor(estado):
+    def __init__(self, estado, pai, acao, custo):
+        self.estado = estado
+        self.pai = pai
+        self.acao = acao
+        self.custo = custo
 
-    return None
+    def getEstado(self):
+        return self.estado
+    
+    def getPai(self):
+        return self.pai
+
+    def getAcao(self):
+        return self.acao
+    
+    def getCusto(self):
+        return self.custo
