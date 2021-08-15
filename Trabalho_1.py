@@ -178,13 +178,7 @@ def naoFoiExplorado(nodo, explorados):
     if explorados.get(nodo.getEstado()) is None:
         return True
     return False
-
-# def naoFoiExplorado(nodo, explorados):
-#     for explorado in explorados:
-#         if (nodo.getEstado() == explorado.getEstado()):
-#             return False
-#     return True
-
+    
 def retornaCaminho(nodo, caminho):
     if nodo.getPai() is None:
         caminho.append(nodo.getEstado())
