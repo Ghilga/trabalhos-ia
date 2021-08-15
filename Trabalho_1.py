@@ -1,4 +1,6 @@
 """
+EXERCICIO 1
+
 Recebe um estado (no estilo '_23541687') 
 e retorna uma lista com tuplas com ação e estado atingido, 
 por exemplo: [(abaixo,“2435_1687”),  (direita,“23_541687”)]
@@ -75,3 +77,30 @@ def podeMoverDireita(indiceVazio):
     return False
 
 print(sucessor("2354_1687"))
+
+"""
+EXERCICIO 2
+"""
+class Nodo():
+
+    def __init__(self, estado, pai, acao, custo):
+        self.estado = estado
+        self.pai = pai
+        self.acao = acao
+        self.custo = custo
+
+    def getEstado(self):
+        return self.estado
+    
+    def getPai(self):
+        return self.pai
+
+    def getAcao(self):
+        return self.acao
+    
+    def getCusto(self):
+        return self.custo
+      
+"""
+EXERCICIO 3
+"""
