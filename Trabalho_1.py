@@ -1,3 +1,12 @@
+from queue import *
+import timeit
+
+ACAO_CIMA = "acima"
+ACAO_ABAIXO = "abaixo"
+ACAO_ESQUERDA = "esquerda"
+ACAO_DIREITA = "direita"
+ESTADO_FINAL = "12345678_"
+
 """
 EXERCICIO 1
 
@@ -15,11 +24,6 @@ In: 2354_1687
 Out: [(acima,“2_5431687”),  (direita,“23541_687”),  (abaixo,“2354816_7”),  (esquerda,“235_41687”)]
 
 """
-
-ACAO_CIMA = "acima"
-ACAO_ABAIXO = "abaixo"
-ACAO_ESQUERDA = "esquerda"
-ACAO_DIREITA = "direita"
 
 def sucessor(estado):
     possiveisAcoes = []
@@ -123,20 +127,85 @@ def expande(nodo):
 
     return sucessores
 
+# nodo = Nodo(
+#     estado = "2_3541687",
+#     acao = None,
+#     custo = 0,
+#     pai = None
+# )
+# expandidos = expande(nodo)
+# print(expandidos[0])
+# print(expandidos[1])
+# print(expandidos[2])
+
+"""
+EXERCICIO 4
+"""
+
+def bfs(estado):
+    if estado == ESTADO_FINAL:
+        return []
+
+    solucaoEncontrada = False
+    nodoInicial = Nodo(
+        estado = estado,
+        acao = None,
+        custo = 0,
+        pai = None
+    )
+    explorados = {}
+    fronteira = Queue()
+    fronteira.put(nodoInicial)
+    while not solucaoEncontrada:
+        if fronteira.empty():
+            return None
+        
+        nodoAtual = fronteira.get()
+        if nodoAtual.getEstado() == ESTADO_FINAL:
+            caminho = []
+            retornaCaminho(nodoAtual, caminho)
+            return caminho
+
+        if naoFoiExplorado(nodoAtual, explorados):
+            explorados[nodoAtual.getEstado()] = nodoAtual
+            insereFronteira(nodoAtual, fronteira)
+
+def insereFronteira(nodoAtual, fronteira):
+    for nodo in expande(nodoAtual):
+        fronteira.put(nodo)
+
+def naoFoiExplorado(nodo, explorados):
+    if explorados.get(nodo.getEstado()) is None:
+        return True
+    return False
+
+# def naoFoiExplorado(nodo, explorados):
+#     for explorado in explorados:
+#         if (nodo.getEstado() == explorado.getEstado()):
+#             return False
+#     return True
+
+def retornaCaminho(nodo, caminho):
+    if nodo.getPai() is None:
+        caminho.append(nodo.getEstado())
+    else:
+        retornaCaminho(nodo.getPai(), caminho)
+        caminho.append(nodo.getEstado())
+
 nodo = Nodo(
     estado = "2_3541687",
     acao = None,
     custo = 0,
     pai = None
 )
-expandidos = expande(nodo)
-print(expandidos[0])
-print(expandidos[1])
-print(expandidos[2])
 
+start = timeit.default_timer()
 
+print(bfs("7_4825163"))
 
+stop = timeit.default_timer()
 
+print('Time: ', stop - start)  
 
 
 
