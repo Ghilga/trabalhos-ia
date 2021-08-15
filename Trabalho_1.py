@@ -76,7 +76,7 @@ def podeMoverDireita(indiceVazio):
         return True
     return False
 
-print(sucessor("2354_1687"))
+#print(sucessor("2354_1687"))
 
 """
 EXERCICIO 2
@@ -88,6 +88,13 @@ class Nodo():
         self.pai = pai
         self.acao = acao
         self.custo = custo
+    
+    def __str__(self):
+        return """
+        - acao: {}
+        - estado: {}
+        - pai: {}
+        - custo: {}""".format(self.acao, self.estado, self.pai.getEstado(), self.custo)
 
     def getEstado(self):
         return self.estado
@@ -104,3 +111,35 @@ class Nodo():
 """
 EXERCICIO 3
 """
+def expande(nodo):
+    sucessores = []
+    tuplasSucessores = sucessor(nodo.getEstado())
+    for acao, estado in tuplasSucessores:
+        sucessores.append(Nodo(
+                        estado = estado,
+                        acao = acao,
+                        custo = nodo.getCusto() + 1,
+                        pai = nodo))
+
+    return sucessores
+
+nodo = Nodo(
+    estado = "2_3541687",
+    acao = None,
+    custo = 0,
+    pai = None
+)
+expandidos = expande(nodo)
+print(expandidos[0])
+print(expandidos[1])
+print(expandidos[2])
+
+
+
+
+
+
+
+
+
+
