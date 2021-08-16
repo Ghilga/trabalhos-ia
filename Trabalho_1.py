@@ -170,6 +170,37 @@ def bfs(estado):
             explorados[nodoAtual.getEstado()] = nodoAtual
             insereFronteira(nodoAtual, fronteira)
 
+def dfs(estado):
+    if estado == ESTADO_FINAL:
+        return []
+
+    solucaoEncontrada = False
+    nodoInicial = Nodo(
+        estado = estado,
+        acao = None,
+        custo = 0,
+        pai = None
+    )
+    explorados = {}
+    fronteira = LifoQueue()
+    fronteira.put(nodoInicial)
+    while not solucaoEncontrada:
+        if fronteira.empty():
+            return None
+        
+        nodoAtual = fronteira.get()
+        if nodoAtual.getEstado() == ESTADO_FINAL:
+            caminho = []
+            retornaCaminho(nodoAtual, caminho)
+            return caminho
+
+        if naoFoiExplorado(nodoAtual, explorados):
+            explorados[nodoAtual.getEstado()] = nodoAtual
+            insereFronteira(nodoAtual, fronteira)
+        elif atualTemCustoMenor(explorados.get(nodoAtual.getEstado()), nodoAtual):
+            explorados[nodoAtual.getEstado()] = nodoAtual
+
+
 def insereFronteira(nodoAtual, fronteira):
     for nodo in expande(nodoAtual):
         fronteira.put(nodo)
@@ -178,13 +209,21 @@ def naoFoiExplorado(nodo, explorados):
     if explorados.get(nodo.getEstado()) is None:
         return True
     return False
-    
+
+def atualTemCustoMenor(nodoExplorado, nodoAtual):
+    return nodoExplorado.getCusto() >= nodoAtual.getCusto()
+
 def retornaCaminho(nodo, caminho):
-    if nodo.getPai() is None:
-        caminho.append(nodo.getEstado())
-    else:
-        retornaCaminho(nodo.getPai(), caminho)
-        caminho.append(nodo.getEstado())
+    nodoAtual = nodo
+    while nodoAtual.getPai() is not None:
+        caminho.append(nodoAtual.getEstado())
+        nodoAtual = nodoAtual.getPai()
+    caminho.append(nodoAtual.getEstado())
+    # if nodo.getPai() is None:
+    #     caminho.append(nodo.getEstado())
+    # else:
+    #     retornaCaminho(nodo.getPai(), caminho)
+    #     caminho.append(nodo.getEstado())
 
 nodo = Nodo(
     estado = "2_3541687",
@@ -193,12 +232,15 @@ nodo = Nodo(
     pai = None
 )
 
+
 start = timeit.default_timer()
-
-print(bfs("7_4825163"))
-
+print(bfs("2_3541687"))
 stop = timeit.default_timer()
+print('Time: ', stop - start)  
 
+start = timeit.default_timer()
+print(dfs("2_3541687"))
+stop = timeit.default_timer()
 print('Time: ', stop - start)  
 
 
