@@ -161,18 +161,6 @@ def distanciaManhattan(estado):
         distancia += abs((indice+1)%3 - peca%3) # posicao coluna
         distancia += abs(math.ceil((indice+1)/3) - math.ceil(peca/3)) # posicao linha
     return distancia
-        # x x x
-        # x 1 x     posicao linha = 5%3 = 2         linha original = 1%3 = 1
-        # x x x     posicao coluna = 5/3 = 2        coluna original = 1/3 = 1
-
-        # (-1,1) |(0,1) |(1,1)    258 123  - 1  
-        # (-1,0) |(0,0) |(1,0)    7_6 456
-        # (-1,-1)|(0,-1)|(1,-1)   134 78_
-
-        # (0,2) |(1,2) |(2,2)    258 123  - 1  
-        # (0,1) |(1,1) |(2,1)    7_6 456
-        # (0,0) |(1,0) |(2,0)    134 78_
-
 
 def bfs(estado):
     if estado == ESTADO_FINAL:
@@ -288,35 +276,38 @@ def astar_manhattan(estado):
             explorados[nodoAtual.getEstado()] = nodoAtual
             insereFronteiraManhattan(nodoAtual, fronteira)
 
-start = timeit.default_timer()
-caminhoBfs = bfs("2_3541687")
-stop = timeit.default_timer()
-print('\n-- BFS --')
-print(f'Nós expandidos: {len(caminhoBfs)}')
-print(f'Tempo: {stop - start:.5f}')  
-print(f'Custo: {caminhoBfs[len(caminhoBfs)-1].getCusto()}')  
 
-start = timeit.default_timer()
-caminhoDfs = dfs("2_3541687")
-stop = timeit.default_timer()
-print('\n-- DFS --')
-print(f'Nós expandidos: {len(caminhoDfs)}')
-print(f'Tempo: {stop - start:.5f}')  
-print(f'Custo: {caminhoDfs[len(caminhoDfs)-1].getCusto()}')
+"""
+Secao de Testes
+"""
+#start = timeit.default_timer()
+#caminhoBfs = bfs("2_3541687")
+#stop = timeit.default_timer()
+#print('\n-- BFS --')
+#print(f'Nós expandidos: {len(caminhoBfs)}')
+#print(f'Tempo: {stop - start:.5f}')  
+#print(f'Custo: {caminhoBfs[len(caminhoBfs)-1].getCusto()}')  
 
-start = timeit.default_timer()
-caminhoAstarHamming = astar_hamming("2_3541687")
-stop = timeit.default_timer()
-print('\n-- A* Hamming --')
-print(f'Nós expandidos: {len(caminhoAstarHamming)}')
-print(f'Tempo: {stop - start:.5f}')  
-print(f'Custo: {caminhoAstarHamming[len(caminhoAstarHamming)-1].getCusto()}')
+#start = timeit.default_timer()
+#caminhoDfs = dfs("2_3541687")
+#stop = timeit.default_timer()
+#print('\n-- DFS --')
+#print(f'Nós expandidos: {len(caminhoDfs)}')
+#print(f'Tempo: {stop - start:.5f}')  
+#print(f'Custo: {caminhoDfs[len(caminhoDfs)-1].getCusto()}')
 
+#start = timeit.default_timer()
+#caminhoAstarHamming = astar_hamming("2_3541687")
+#stop = timeit.default_timer()
+#print('\n-- A* Hamming --')
+#print(f'Nós expandidos: {len(caminhoAstarHamming)}')
+#print(f'Tempo: {stop - start:.5f}')  
+#print(f'Custo: {caminhoAstarHamming[len(caminhoAstarHamming)-1].getCusto()}')
 
-start = timeit.default_timer()
-caminhoAstarManhattan = astar_manhattan("2_3541687")
-stop = timeit.default_timer()
-print('\n-- A* Manhattan --')
-print(f'Nós expandidos: {len(caminhoAstarManhattan)}')
-print(f'Tempo: {stop - start:.5f}')  
-print(f'Custo: {caminhoAstarManhattan[len(caminhoAstarManhattan)-1].getCusto()}')
+#start = timeit.default_timer()
+#caminhoAstarManhattan = astar_manhattan("2_3541687")
+#stop = timeit.default_timer()
+#print('\n-- A* Manhattan --')
+#print(f'Nós expandidos: {len(caminhoAstarManhattan)}')
+#print(f'Tempo: {stop - start:.5f}')  
+#print(f'Custo: {caminhoAstarManhattan[len(caminhoAstarManhattan)-1].getCusto()}')
