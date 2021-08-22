@@ -1,5 +1,6 @@
 from queue import *
 import timeit
+import math
 
 ACAO_CIMA = "acima"
 ACAO_ABAIXO = "abaixo"
@@ -9,20 +10,6 @@ ESTADO_FINAL = "12345678_"
 
 """
 EXERCICIO 1
-
-Recebe um estado (no estilo '_23541687') 
-e retorna uma lista com tuplas com ação e estado atingido, 
-por exemplo: [(abaixo,“2435_1687”),  (direita,“23_541687”)]
-
-In: _23541687
-Out: [(abaixo,“523_41687”),  (direita,“2_3541687”)]
-
-In: 23541687_
-Out: [(cima,“23541_876”),  (esquerda,“2354168_7”)]
-
-In: 2354_1687
-Out: [(acima,“2_5431687”),  (direita,“23541_687”),  (abaixo,“2354816_7”),  (esquerda,“235_41687”)]
-
 """
 
 def sucessor(estado):
@@ -80,8 +67,6 @@ def podeMoverDireita(indiceVazio):
         return True
     return False
 
-#print(sucessor("2354_1687"))
-
 """
 EXERCICIO 2
 """
@@ -127,20 +112,67 @@ def expande(nodo):
 
     return sucessores
 
-# nodo = Nodo(
-#     estado = "2_3541687",
-#     acao = None,
-#     custo = 0,
-#     pai = None
-# )
-# expandidos = expande(nodo)
-# print(expandidos[0])
-# print(expandidos[1])
-# print(expandidos[2])
-
 """
 EXERCICIO 4
 """
+def insereFronteira(nodoAtual, fronteira):
+    for nodo in expande(nodoAtual):
+        fronteira.put(nodo)
+
+def insereFronteiraHamming(nodoAtual, fronteira):
+    for nodo in expande(nodoAtual):
+        fronteira.put((distanciaHamming(nodo.getEstado()) + nodo.getCusto(), timeit.default_timer(), nodo))
+
+def insereFronteiraManhattan(nodoAtual, fronteira):
+    for nodo in expande(nodoAtual):
+        fronteira.put((distanciaManhattan(nodo.getEstado()) + nodo.getCusto(), timeit.default_timer(), nodo))
+
+def naoFoiExplorado(nodo, explorados):
+    if explorados.get(nodo.getEstado()) is None:
+        return True
+    return False
+
+def atualTemCustoMenor(nodoExplorado, nodoAtual):
+    return nodoExplorado.getCusto() >= nodoAtual.getCusto()
+
+def retornaCaminho(nodo, caminho):
+    nodoAtual = nodo
+    while nodoAtual.getPai() is not None:
+        caminho.append(nodoAtual)
+        nodoAtual = nodoAtual.getPai()
+
+def distanciaHamming(estado):
+    distancia = 0
+    for i in range(len(estado)):
+        if estado[i] != ESTADO_FINAL[i]:
+            distancia += 1
+    return distancia
+        
+def distanciaManhattan(estado):
+    if estado == ESTADO_FINAL:
+        return 0
+
+    distancia = 0
+    for indice, peca in enumerate(estado):
+        if peca == "_":
+            peca = 9
+        else:
+            peca = int(peca)
+        distancia += abs((indice+1)%3 - peca%3) # posicao coluna
+        distancia += abs(math.ceil((indice+1)/3) - math.ceil(peca/3)) # posicao linha
+    return distancia
+        # x x x
+        # x 1 x     posicao linha = 5%3 = 2         linha original = 1%3 = 1
+        # x x x     posicao coluna = 5/3 = 2        coluna original = 1/3 = 1
+
+        # (-1,1) |(0,1) |(1,1)    258 123  - 1  
+        # (-1,0) |(0,0) |(1,0)    7_6 456
+        # (-1,-1)|(0,-1)|(1,-1)   134 78_
+
+        # (0,2) |(1,2) |(2,2)    258 123  - 1  
+        # (0,1) |(1,1) |(2,1)    7_6 456
+        # (0,0) |(1,0) |(2,0)    134 78_
+
 
 def bfs(estado):
     if estado == ESTADO_FINAL:
@@ -164,7 +196,7 @@ def bfs(estado):
         if nodoAtual.getEstado() == ESTADO_FINAL:
             caminho = []
             retornaCaminho(nodoAtual, caminho)
-            return caminho
+            return list(reversed(caminho))
 
         if naoFoiExplorado(nodoAtual, explorados):
             explorados[nodoAtual.getEstado()] = nodoAtual
@@ -192,7 +224,7 @@ def dfs(estado):
         if nodoAtual.getEstado() == ESTADO_FINAL:
             caminho = []
             retornaCaminho(nodoAtual, caminho)
-            return caminho
+            return list(reversed(caminho))
 
         if naoFoiExplorado(nodoAtual, explorados):
             explorados[nodoAtual.getEstado()] = nodoAtual
@@ -200,51 +232,91 @@ def dfs(estado):
         elif atualTemCustoMenor(explorados.get(nodoAtual.getEstado()), nodoAtual):
             explorados[nodoAtual.getEstado()] = nodoAtual
 
+def astar_hamming(estado):
+    if estado == ESTADO_FINAL:
+        return []
 
-def insereFronteira(nodoAtual, fronteira):
-    for nodo in expande(nodoAtual):
-        fronteira.put(nodo)
+    solucaoEncontrada = False
+    nodoInicial = Nodo(
+        estado = estado,
+        acao = None,
+        custo = 0,
+        pai = None
+    )
+    explorados = {}
+    fronteira = PriorityQueue()
+    fronteira.put((0, timeit.default_timer(), nodoInicial))
+    while not solucaoEncontrada:
+        if fronteira.empty():
+            return None
+        
+        nodoAtual = fronteira.get()[2]
+        if nodoAtual.getEstado() == ESTADO_FINAL:
+            caminho = []
+            retornaCaminho(nodoAtual, caminho)
+            return list(reversed(caminho))
 
-def naoFoiExplorado(nodo, explorados):
-    if explorados.get(nodo.getEstado()) is None:
-        return True
-    return False
+        if naoFoiExplorado(nodoAtual, explorados):
+            explorados[nodoAtual.getEstado()] = nodoAtual
+            insereFronteiraHamming(nodoAtual, fronteira)
+    
+def astar_manhattan(estado):
+    if estado == ESTADO_FINAL:
+        return []
 
-def atualTemCustoMenor(nodoExplorado, nodoAtual):
-    return nodoExplorado.getCusto() >= nodoAtual.getCusto()
+    solucaoEncontrada = False
+    nodoInicial = Nodo(
+        estado = estado,
+        acao = None,
+        custo = 0,
+        pai = None
+    )
+    explorados = {}
+    fronteira = PriorityQueue()
+    fronteira.put((0, timeit.default_timer(), nodoInicial))
+    while not solucaoEncontrada:
+        if fronteira.empty():
+            return None
+        
+        nodoAtual = fronteira.get()[2]
+        if nodoAtual.getEstado() == ESTADO_FINAL:
+            caminho = []
+            retornaCaminho(nodoAtual, caminho)
+            return list(reversed(caminho))
 
-def retornaCaminho(nodo, caminho):
-    nodoAtual = nodo
-    while nodoAtual.getPai() is not None:
-        caminho.append(nodoAtual.getEstado())
-        nodoAtual = nodoAtual.getPai()
-    caminho.append(nodoAtual.getEstado())
-    # if nodo.getPai() is None:
-    #     caminho.append(nodo.getEstado())
-    # else:
-    #     retornaCaminho(nodo.getPai(), caminho)
-    #     caminho.append(nodo.getEstado())
+        if naoFoiExplorado(nodoAtual, explorados):
+            explorados[nodoAtual.getEstado()] = nodoAtual
+            insereFronteiraManhattan(nodoAtual, fronteira)
 
-nodo = Nodo(
-    estado = "2_3541687",
-    acao = None,
-    custo = 0,
-    pai = None
-)
+start = timeit.default_timer()
+caminhoBfs = bfs("2_3541687")
+stop = timeit.default_timer()
+print('\n-- BFS --')
+print(f'Nós expandidos: {len(caminhoBfs)}')
+print(f'Tempo: {stop - start:.5f}')  
+print(f'Custo: {caminhoBfs[len(caminhoBfs)-1].getCusto()}')  
+
+start = timeit.default_timer()
+caminhoDfs = dfs("2_3541687")
+stop = timeit.default_timer()
+print('\n-- DFS --')
+print(f'Nós expandidos: {len(caminhoDfs)}')
+print(f'Tempo: {stop - start:.5f}')  
+print(f'Custo: {caminhoDfs[len(caminhoDfs)-1].getCusto()}')
+
+start = timeit.default_timer()
+caminhoAstarHamming = astar_hamming("2_3541687")
+stop = timeit.default_timer()
+print('\n-- A* Hamming --')
+print(f'Nós expandidos: {len(caminhoAstarHamming)}')
+print(f'Tempo: {stop - start:.5f}')  
+print(f'Custo: {caminhoAstarHamming[len(caminhoAstarHamming)-1].getCusto()}')
 
 
 start = timeit.default_timer()
-print(bfs("2_3541687"))
+caminhoAstarManhattan = astar_manhattan("2_3541687")
 stop = timeit.default_timer()
-print('Time: ', stop - start)  
-
-start = timeit.default_timer()
-print(dfs("2_3541687"))
-stop = timeit.default_timer()
-print('Time: ', stop - start)  
-
-
-
-
-
-
+print('\n-- A* Manhattan --')
+print(f'Nós expandidos: {len(caminhoAstarManhattan)}')
+print(f'Tempo: {stop - start:.5f}')  
+print(f'Custo: {caminhoAstarManhattan[len(caminhoAstarManhattan)-1].getCusto()}')
