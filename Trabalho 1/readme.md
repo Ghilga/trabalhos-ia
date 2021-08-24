@@ -5,7 +5,7 @@ Giusepe Tessari, 282772, Turma B
 
 Maurício Kritli, 232807, Turma A
 
-## Resultados dos algoritmos
+## Resultados dos algoritmos para o estado inicial: "2_3541687"
 
 ### -- BFS --
 

@@ -1,5 +1,5 @@
 import unittest
-import trabalho_1 as solucao
+import solucao as solucao
 
 
 class TestaSolucao(unittest.TestCase):
