@@ -43,7 +43,8 @@ def make_move(the_board, color):
 
 
 def successors(the_board, color):
-    
+    # POSSIBLE CHANGE: RETURN TUPLES WITH X,Y COORDINATES, AND THEN EXECUTE PROCESS_MOVE IN EVALUATE FUNCTION.
+
     possible_boards = []
 
     for move in the_board.legal_moves(color):
