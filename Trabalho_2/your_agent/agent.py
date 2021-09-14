@@ -6,19 +6,13 @@ import copy
 import math
 import collections
 
-# Voce pode criar funcoes auxiliares neste arquivo
-# e tambem modulos auxiliares neste pacote.
-#
-# Nao esqueca de renomear 'your_agent' com o nome
-# do seu agente.
-
 INVERT_COLOR = {'W':'B', 'B':'W'}
 CORNER_WEIGHT = 500
 POSITION_WEIGHT = 0.5
 OPPONENT_COUNT_WEIGHT = 0.25
 SURROUNDING_COUNT_WEIGHT = 0.25
 STARTING_DEPTH = 1
-LIMIT_DEPTH = 4
+LIMIT_DEPTH = 5
 BOARD_POSITION_WEIGHT = [[120 ,-20 ,20 ,5  ,5  ,20 ,-20 ,120 ],
                          [-20 ,-40 ,-5 ,-5 ,-5 ,-5 ,-40 ,-20 ],
                          [20  ,-5  ,15 ,3  ,3  ,15 ,-5  ,20  ],
@@ -34,7 +28,7 @@ class GameState:
     opponent_color = ''
 
     def __init__(self, game_board, move_played, move_value, player_color):
-        # tabuleiro do jogo, com a jogada 'move_played' aplicada. 
+        # Tabuleiro do jogo, com a jogada 'move_played' aplicada. 
         # Usado para geracao de sucessores e para analises na funcao de avaliacao.
         self.game_board = game_board
         # Par ordenado (x,y). Jogada feita. Necessario para o retorno da funcao minimax.
@@ -58,9 +52,6 @@ def make_move(the_board, color):
     :param color: a character indicating the color to make the move ('B' or 'W')
     :return: (int, int) tuple with x, y indexes of the move (remember: 0 is the first row/column)
     """
-    # o codigo abaixo apenas retorna um movimento aleatorio valido para
-    # a primeira jogada com as pretas.
-    # Remova-o e coloque a sua implementacao da poda alpha-beta
 
     original_board = GameState(copy.deepcopy(the_board), (-1,-1), -math.inf, color)
 
@@ -84,7 +75,6 @@ def successors(the_board, color, is_max):
 
 def stopping_condition(depth):
     return depth > LIMIT_DEPTH
-    # --- To be improved ---
 
 def can_calculate_surrounding(state):
     x = state[0]
@@ -121,7 +111,6 @@ def get_position_weight(state):
 
     return BOARD_POSITION_WEIGHT[y][x]
 
-# TODO NÃO UTILIZADA AINDA
 def get_opp_possible_following_plays(board, state, player_color):
     """
     Returns the total number of plays available for the opponent on his next turn, if player_move is performed by the player.
@@ -145,7 +134,7 @@ def evaluate(game_state):
         return CORNER_WEIGHT
 
     evaluation_value = (POSITION_WEIGHT*get_position_weight(game_state.move_played))
-    #evaluation_value += 2*get_opp_possible_following_plays(game_state.game_board, game_state.move_played, game_state.player_color)
+
     if(can_calculate_surrounding(game_state.move_played)):
         sorrounding_pieces = get_surrounding_pieces(game_state.game_board, game_state.move_played)
         evaluation_value += OPPONENT_COUNT_WEIGHT*get_surrounding_opponent_count(sorrounding_pieces,game_state.player_color)
@@ -175,8 +164,6 @@ def max_value(game_state, alpha, beta, depth):
             if (s.move_value > next_play.move_value):
                 next_play = s
         return next_play.move_played
-#            if (game_state.move_value == s.move_value):
-#                return s.move_played
 
     return game_state.move_value
 
