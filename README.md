@@ -12,3 +12,5 @@ Maurício Kritli, 232807, Turma A
 [Trabalho 1](https://github.com/Ghilga/trabalhos-ia/blob/main/Enunciado%20-%20T1.pdf)
 
 [Trabalho 2](https://github.com/Ghilga/trabalhos-ia/blob/main/Enunciado%20-%20T2.pdf)
+
+[Trabalho 3](https://github.com/Ghilga/trabalhos-ia/blob/main/Enunciado%20-%20T3.pdf)
