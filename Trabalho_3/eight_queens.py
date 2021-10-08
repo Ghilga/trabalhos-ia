@@ -205,6 +205,3 @@ def run_ga(g, n, k, m, e):
     results_file.close()
 
     return best_individual  # retorna o melhor individuo encontrado.
-
-
-run_ga(20, 50, 8, 0.7, True)

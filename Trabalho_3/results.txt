@@ -1,406 +1,86 @@
-Max conflitos populacao inicial: 14
-Min conflitos populacao inicial: 4
-Media conflitos populacao inicial: 7.65
+Max conflitos populacao inicial: 15
+Min conflitos populacao inicial: 3
+Media conflitos populacao inicial: 8.14
 
 Max conflitos geracao 1: 13
-Min conflitos geracao 1: 3
-Media conflitos geracao 1: 6.7073170731707314
+Min conflitos geracao 1: 2
+Media conflitos geracao 1: 6.235294117647059
 
-Max conflitos geracao 2: 9
-Min conflitos geracao 2: 3
-Media conflitos geracao 2: 6.073170731707317
+Max conflitos geracao 2: 10
+Min conflitos geracao 2: 2
+Media conflitos geracao 2: 5.098039215686274
 
 Max conflitos geracao 3: 9
-Min conflitos geracao 3: 3
-Media conflitos geracao 3: 5.878048780487805
+Min conflitos geracao 3: 2
+Media conflitos geracao 3: 4.431372549019608
 
 Max conflitos geracao 4: 9
-Min conflitos geracao 4: 3
-Media conflitos geracao 4: 5.902439024390244
+Min conflitos geracao 4: 2
+Media conflitos geracao 4: 3.4901960784313726
 
-Max conflitos geracao 5: 9
-Min conflitos geracao 5: 3
-Media conflitos geracao 5: 5.341463414634147
+Max conflitos geracao 5: 8
+Min conflitos geracao 5: 2
+Media conflitos geracao 5: 3.588235294117647
 
-Max conflitos geracao 6: 8
+Max conflitos geracao 6: 6
 Min conflitos geracao 6: 2
-Media conflitos geracao 6: 5.219512195121951
+Media conflitos geracao 6: 3.6470588235294117
 
-Max conflitos geracao 7: 10
+Max conflitos geracao 7: 6
 Min conflitos geracao 7: 2
-Media conflitos geracao 7: 5.414634146341464
+Media conflitos geracao 7: 3.549019607843137
 
-Max conflitos geracao 8: 10
+Max conflitos geracao 8: 7
 Min conflitos geracao 8: 2
-Media conflitos geracao 8: 5.2439024390243905
+Media conflitos geracao 8: 3.392156862745098
 
-Max conflitos geracao 9: 8
+Max conflitos geracao 9: 6
 Min conflitos geracao 9: 2
-Media conflitos geracao 9: 4.902439024390244
+Media conflitos geracao 9: 3.0784313725490198
 
-Max conflitos geracao 10: 8
+Max conflitos geracao 10: 6
 Min conflitos geracao 10: 2
-Media conflitos geracao 10: 5.0
+Media conflitos geracao 10: 2.9215686274509802
 
-Max conflitos geracao 11: 8
+Max conflitos geracao 11: 6
 Min conflitos geracao 11: 2
-Media conflitos geracao 11: 4.804878048780488
+Media conflitos geracao 11: 3.1372549019607843
 
-Max conflitos geracao 12: 9
+Max conflitos geracao 12: 6
 Min conflitos geracao 12: 2
-Media conflitos geracao 12: 4.2926829268292686
+Media conflitos geracao 12: 3.1176470588235294
 
-Max conflitos geracao 13: 9
+Max conflitos geracao 13: 6
 Min conflitos geracao 13: 2
-Media conflitos geracao 13: 4.634146341463414
+Media conflitos geracao 13: 3.176470588235294
 
-Max conflitos geracao 14: 9
+Max conflitos geracao 14: 6
 Min conflitos geracao 14: 2
-Media conflitos geracao 14: 4.390243902439025
+Media conflitos geracao 14: 2.980392156862745
 
-Max conflitos geracao 15: 8
+Max conflitos geracao 15: 6
 Min conflitos geracao 15: 2
-Media conflitos geracao 15: 3.731707317073171
+Media conflitos geracao 15: 3.196078431372549
 
-Max conflitos geracao 16: 7
+Max conflitos geracao 16: 6
 Min conflitos geracao 16: 2
-Media conflitos geracao 16: 3.5853658536585367
+Media conflitos geracao 16: 3.1372549019607843
 
-Max conflitos geracao 17: 8
+Max conflitos geracao 17: 5
 Min conflitos geracao 17: 2
-Media conflitos geracao 17: 3.5121951219512195
+Media conflitos geracao 17: 3.156862745098039
 
 Max conflitos geracao 18: 7
 Min conflitos geracao 18: 2
-Media conflitos geracao 18: 3.048780487804878
+Media conflitos geracao 18: 3.2549019607843137
 
-Max conflitos geracao 19: 5
-Min conflitos geracao 19: 2
-Media conflitos geracao 19: 2.902439024390244
+Max conflitos geracao 19: 6
+Min conflitos geracao 19: 1
+Media conflitos geracao 19: 3.1372549019607843
 
-Max conflitos geracao 20: 5
-Min conflitos geracao 20: 2
-Media conflitos geracao 20: 2.8536585365853657
+Max conflitos geracao 20: 8
+Min conflitos geracao 20: 1
+Media conflitos geracao 20: 2.980392156862745
 
-Max conflitos geracao 21: 8
-Min conflitos geracao 21: 2
-Media conflitos geracao 21: 2.8536585365853657
-
-Max conflitos geracao 22: 6
-Min conflitos geracao 22: 2
-Media conflitos geracao 22: 2.731707317073171
-
-Max conflitos geracao 23: 6
-Min conflitos geracao 23: 2
-Media conflitos geracao 23: 2.6097560975609757
-
-Max conflitos geracao 24: 6
-Min conflitos geracao 24: 2
-Media conflitos geracao 24: 2.658536585365854
-
-Max conflitos geracao 25: 7
-Min conflitos geracao 25: 2
-Media conflitos geracao 25: 2.951219512195122
-
-Max conflitos geracao 26: 5
-Min conflitos geracao 26: 2
-Media conflitos geracao 26: 2.4634146341463414
-
-Max conflitos geracao 27: 6
-Min conflitos geracao 27: 2
-Media conflitos geracao 27: 2.4878048780487805
-
-Max conflitos geracao 28: 6
-Min conflitos geracao 28: 1
-Media conflitos geracao 28: 2.4878048780487805
-
-Max conflitos geracao 29: 5
-Min conflitos geracao 29: 1
-Media conflitos geracao 29: 2.5121951219512195
-
-Max conflitos geracao 30: 5
-Min conflitos geracao 30: 1
-Media conflitos geracao 30: 2.5365853658536586
-
-Max conflitos geracao 31: 5
-Min conflitos geracao 31: 1
-Media conflitos geracao 31: 2.341463414634146
-
-Max conflitos geracao 32: 4
-Min conflitos geracao 32: 1
-Media conflitos geracao 32: 1.829268292682927
-
-Max conflitos geracao 33: 5
-Min conflitos geracao 33: 1
-Media conflitos geracao 33: 1.9024390243902438
-
-Max conflitos geracao 34: 5
-Min conflitos geracao 34: 1
-Media conflitos geracao 34: 1.9024390243902438
-
-Max conflitos geracao 35: 6
-Min conflitos geracao 35: 1
-Media conflitos geracao 35: 2.0
-
-Max conflitos geracao 36: 7
-Min conflitos geracao 36: 1
-Media conflitos geracao 36: 1.975609756097561
-
-Max conflitos geracao 37: 6
-Min conflitos geracao 37: 1
-Media conflitos geracao 37: 1.6097560975609757
-
-Max conflitos geracao 38: 7
-Min conflitos geracao 38: 1
-Media conflitos geracao 38: 1.975609756097561
-
-Max conflitos geracao 39: 5
-Min conflitos geracao 39: 1
-Media conflitos geracao 39: 1.853658536585366
-
-Max conflitos geracao 40: 4
-Min conflitos geracao 40: 1
-Media conflitos geracao 40: 1.7804878048780488
-
-Max conflitos geracao 41: 5
-Min conflitos geracao 41: 1
-Media conflitos geracao 41: 2.2195121951219514
-
-Max conflitos geracao 42: 4
-Min conflitos geracao 42: 1
-Media conflitos geracao 42: 1.9268292682926829
-
-Max conflitos geracao 43: 4
-Min conflitos geracao 43: 1
-Media conflitos geracao 43: 1.5609756097560976
-
-Max conflitos geracao 44: 5
-Min conflitos geracao 44: 1
-Media conflitos geracao 44: 1.7317073170731707
-
-Max conflitos geracao 45: 5
-Min conflitos geracao 45: 1
-Media conflitos geracao 45: 1.975609756097561
-
-Max conflitos geracao 46: 4
-Min conflitos geracao 46: 1
-Media conflitos geracao 46: 1.6341463414634145
-
-Max conflitos geracao 47: 5
-Min conflitos geracao 47: 1
-Media conflitos geracao 47: 1.8048780487804879
-
-Max conflitos geracao 48: 6
-Min conflitos geracao 48: 1
-Media conflitos geracao 48: 2.0
-
-Max conflitos geracao 49: 4
-Min conflitos geracao 49: 1
-Media conflitos geracao 49: 1.6585365853658536
-
-Max conflitos geracao 50: 4
-Min conflitos geracao 50: 1
-Media conflitos geracao 50: 1.7804878048780488
-
-Max conflitos geracao 51: 6
-Min conflitos geracao 51: 1
-Media conflitos geracao 51: 2.048780487804878
-
-Max conflitos geracao 52: 5
-Min conflitos geracao 52: 1
-Media conflitos geracao 52: 1.975609756097561
-
-Max conflitos geracao 53: 5
-Min conflitos geracao 53: 1
-Media conflitos geracao 53: 1.951219512195122
-
-Max conflitos geracao 54: 6
-Min conflitos geracao 54: 1
-Media conflitos geracao 54: 2.073170731707317
-
-Max conflitos geracao 55: 6
-Min conflitos geracao 55: 1
-Media conflitos geracao 55: 1.975609756097561
-
-Max conflitos geracao 56: 6
-Min conflitos geracao 56: 1
-Media conflitos geracao 56: 1.7804878048780488
-
-Max conflitos geracao 57: 4
-Min conflitos geracao 57: 1
-Media conflitos geracao 57: 1.8048780487804879
-
-Max conflitos geracao 58: 4
-Min conflitos geracao 58: 1
-Media conflitos geracao 58: 1.4878048780487805
-
-Max conflitos geracao 59: 5
-Min conflitos geracao 59: 1
-Media conflitos geracao 59: 1.6341463414634145
-
-Max conflitos geracao 60: 5
-Min conflitos geracao 60: 1
-Media conflitos geracao 60: 1.7560975609756098
-
-Max conflitos geracao 61: 4
-Min conflitos geracao 61: 1
-Media conflitos geracao 61: 1.3658536585365855
-
-Max conflitos geracao 62: 5
-Min conflitos geracao 62: 1
-Media conflitos geracao 62: 1.6585365853658536
-
-Max conflitos geracao 63: 5
-Min conflitos geracao 63: 1
-Media conflitos geracao 63: 1.6829268292682926
-
-Max conflitos geracao 64: 6
-Min conflitos geracao 64: 1
-Media conflitos geracao 64: 1.6341463414634145
-
-Max conflitos geracao 65: 5
-Min conflitos geracao 65: 1
-Media conflitos geracao 65: 1.5121951219512195
-
-Max conflitos geracao 66: 4
-Min conflitos geracao 66: 1
-Media conflitos geracao 66: 1.4634146341463414
-
-Max conflitos geracao 67: 4
-Min conflitos geracao 67: 1
-Media conflitos geracao 67: 1.3902439024390243
-
-Max conflitos geracao 68: 4
-Min conflitos geracao 68: 1
-Media conflitos geracao 68: 1.4634146341463414
-
-Max conflitos geracao 69: 5
-Min conflitos geracao 69: 1
-Media conflitos geracao 69: 1.829268292682927
-
-Max conflitos geracao 70: 5
-Min conflitos geracao 70: 1
-Media conflitos geracao 70: 1.7560975609756098
-
-Max conflitos geracao 71: 6
-Min conflitos geracao 71: 0
-Media conflitos geracao 71: 1.7560975609756098
-
-Max conflitos geracao 72: 6
-Min conflitos geracao 72: 0
-Media conflitos geracao 72: 1.8780487804878048
-
-Max conflitos geracao 73: 6
-Min conflitos geracao 73: 0
-Media conflitos geracao 73: 1.5121951219512195
-
-Max conflitos geracao 74: 5
-Min conflitos geracao 74: 0
-Media conflitos geracao 74: 1.4390243902439024
-
-Max conflitos geracao 75: 4
-Min conflitos geracao 75: 0
-Media conflitos geracao 75: 1.2926829268292683
-
-Max conflitos geracao 76: 4
-Min conflitos geracao 76: 0
-Media conflitos geracao 76: 1.4878048780487805
-
-Max conflitos geracao 77: 3
-Min conflitos geracao 77: 0
-Media conflitos geracao 77: 1.024390243902439
-
-Max conflitos geracao 78: 6
-Min conflitos geracao 78: 0
-Media conflitos geracao 78: 1.2926829268292683
-
-Max conflitos geracao 79: 3
-Min conflitos geracao 79: 0
-Media conflitos geracao 79: 1.0975609756097562
-
-Max conflitos geracao 80: 4
-Min conflitos geracao 80: 0
-Media conflitos geracao 80: 0.8536585365853658
-
-Max conflitos geracao 81: 4
-Min conflitos geracao 81: 0
-Media conflitos geracao 81: 0.7073170731707317
-
-Max conflitos geracao 82: 6
-Min conflitos geracao 82: 0
-Media conflitos geracao 82: 1.0
-
-Max conflitos geracao 83: 3
-Min conflitos geracao 83: 0
-Media conflitos geracao 83: 0.5853658536585366
-
-Max conflitos geracao 84: 3
-Min conflitos geracao 84: 0
-Media conflitos geracao 84: 0.5853658536585366
-
-Max conflitos geracao 85: 3
-Min conflitos geracao 85: 0
-Media conflitos geracao 85: 0.6829268292682927
-
-Max conflitos geracao 86: 4
-Min conflitos geracao 86: 0
-Media conflitos geracao 86: 0.6829268292682927
-
-Max conflitos geracao 87: 3
-Min conflitos geracao 87: 0
-Media conflitos geracao 87: 0.975609756097561
-
-Max conflitos geracao 88: 4
-Min conflitos geracao 88: 0
-Media conflitos geracao 88: 1.3658536585365855
-
-Max conflitos geracao 89: 4
-Min conflitos geracao 89: 0
-Media conflitos geracao 89: 1.1219512195121952
-
-Max conflitos geracao 90: 6
-Min conflitos geracao 90: 0
-Media conflitos geracao 90: 0.9024390243902439
-
-Max conflitos geracao 91: 8
-Min conflitos geracao 91: 0
-Media conflitos geracao 91: 0.8536585365853658
-
-Max conflitos geracao 92: 4
-Min conflitos geracao 92: 0
-Media conflitos geracao 92: 0.9024390243902439
-
-Max conflitos geracao 93: 3
-Min conflitos geracao 93: 0
-Media conflitos geracao 93: 0.8536585365853658
-
-Max conflitos geracao 94: 4
-Min conflitos geracao 94: 0
-Media conflitos geracao 94: 0.7804878048780488
-
-Max conflitos geracao 95: 3
-Min conflitos geracao 95: 0
-Media conflitos geracao 95: 0.6585365853658537
-
-Max conflitos geracao 96: 3
-Min conflitos geracao 96: 0
-Media conflitos geracao 96: 0.5609756097560976
-
-Max conflitos geracao 97: 3
-Min conflitos geracao 97: 0
-Media conflitos geracao 97: 0.5609756097560976
-
-Max conflitos geracao 98: 3
-Min conflitos geracao 98: 0
-Media conflitos geracao 98: 0.6829268292682927
-
-Max conflitos geracao 99: 3
-Min conflitos geracao 99: 0
-Media conflitos geracao 99: 0.7560975609756098
-
-Max conflitos geracao 100: 5
-Min conflitos geracao 100: 0
-Media conflitos geracao 100: 0.5121951219512195
-
-Avaliacao do melhor individuo encontrado: 0
-Melhor individuo encontrado: [8, 2, 5, 3, 1, 7, 4, 6]
+Avaliacao do melhor individuo encontrado: 1
+Melhor individuo encontrado: [1, 8, 6, 3, 7, 2, 4, 5]
