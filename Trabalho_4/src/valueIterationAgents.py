@@ -12,7 +12,7 @@
 # Pieter Abbeel (pabbeel@cs.berkeley.edu).
 
 
-import mdp, util
+import mdp, util, math
 
 from learningAgents import ValueEstimationAgent
 
@@ -44,6 +44,33 @@ class ValueIterationAgent(ValueEstimationAgent):
         self.values = util.Counter() # A Counter is a dict with default 0
 
         # Write value iteration code here
+        newValues = util.Counter()
+        for iteration in range(self.iterations):
+
+            for state in self.mdp.getStates():
+                if (self.mdp.isTerminal(state) is False):
+                    best_action = self.computeActionFromValues(state)
+                    newValues[state] = self.computeQValueFromValues(state,best_action)
+                '''# usar função para pegar ações possiveis --> actions = self.mdp.getPossibleActions(state)
+                best_action = None
+                greatest_acc = - math.inf
+                best_action_reward = 0
+                for action in self.mdp.getPossibleActions(state):
+                    # usar função para pegar FUTURAS ações possiveis
+                    accumulator = 0
+                    reward_acc = 0
+                    for nextState, probability in self.mdp.getTransitionStatesAndProbs(state, action):
+                        reward_acc += self.mdp.getReward(state, action, nextState) * probability
+                        accumulator += currentValues[nextState] * probability
+                        
+                    if accumulator > greatest_acc:
+                        best_action = action
+                        greatest_acc = accumulator
+                        best_action_reward = reward_acc
+
+                self.values[state] += (best_action_reward) + (discount * greatest_acc)'''
+            self.values = newValues.copy()
+        
         "*** YOUR CODE HERE ***"
 
 
@@ -60,7 +87,14 @@ class ValueIterationAgent(ValueEstimationAgent):
           value function stored in self.values.
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        # obtem uma lista de tuplas (estados, proabilidade de ir para aquele estado) --> nxtStateAndProbsList = self.mdp.getTransitionStatesAndProbs(state, action)
+        # fazer o somatorio dos estados*prob --> sum = sum([ getValue(nextState)*Prob for (nextState,Prob) in nxtStateAndProbsList])   
+        # return sum
+        
+        Q_value = sum([(((self.mdp.getReward(state, action, nextState)) + (self.values[nextState] * self.discount)) * probability) for nextState, probability in self.mdp.getTransitionStatesAndProbs(state, action)])
+        #print(Q_value)
+        #input()
+        return Q_value
 
     def computeActionFromValues(self, state):
         """
@@ -72,7 +106,19 @@ class ValueIterationAgent(ValueEstimationAgent):
           terminal state, you should return None.
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+
+        # usar função para pegar ações possiveis --> actions = self.mdp.getPossibleActions(state)
+        # para cada ação retornada acima calcular os valores de Q --> Q = computeQValueFromValues (...)
+        # obtem qual eh o maior Q
+        # retorna melhor action
+
+        next_actions = util.Counter()
+        for possible_action in self.mdp.getPossibleActions(state):
+            next_actions[possible_action] = self.computeQValueFromValues(state, possible_action)
+        if((not self.mdp.isTerminal(state)) and len(next_actions) > 0):
+            return next_actions.argMax()
+        else:
+            return None
 
     def getPolicy(self, state):
         return self.computeActionFromValues(state)
